@@ -6,6 +6,20 @@ public class Testing{
 
 		int times = 20;
 
+		try {
+
+			times = Integer.parseInt(args[0]);
+
+		} catch (NumberFormatException n) {
+
+			times = 20;
+
+		} catch (ArrayIndexOutOfBoundsException a) {
+
+			times = 20;
+			
+		}
+
 		System.out.println("Testing...\nHere are some fibonacci numbers:");
 
 		int[] nums = {0,1,0};
