@@ -5,24 +5,24 @@ public class Testing{
 	public static void main(String[] args){
 
 		int times = 20;
+		int firstNum = 0;
+		int secondNum = 1;
 
 		try {
 
 			times = Integer.parseInt(args[0]);
+			firstNum = Integer.parseInt(args[1]);
+			secondNum = Integer.parseInt(args[2]);
 
 		} catch (NumberFormatException n) {
 
-			times = 20;
-
 		} catch (ArrayIndexOutOfBoundsException a) {
 
-			times = 20;
-			
 		}
 
 		System.out.println("Testing...\nHere are some fibonacci numbers:");
 
-		int[] nums = {0,1,0};
+		int[] nums = {firstNum,secondNum,0};
 
 		for(int x = 0; x < times; x++){
 			System.out.println(Integer.toString(nums[1]));
