@@ -115,7 +115,7 @@ public class List_inArraySlots {
           newIntElements[element] = intElements[element];
           newDoubleElements[element] = doubleElements[element];
           newStringElements[element] = stringElements[element];
-          newTypeOfElements[element] = intElements[element];
+          newTypeOfElements[element] = typeOfElements[element];
         }
 
         intElements = newIntElements;

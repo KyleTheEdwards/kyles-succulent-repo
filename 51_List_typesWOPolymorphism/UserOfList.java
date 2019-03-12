@@ -30,6 +30,8 @@ public class UserOfList {
 
             list.add( 0, -elemIndex, -2.0,  "junk");
             System.out.println( "number of elements: " + list.size() );
+            System.out.println( list + System.lineSeparator());
+
         }
         System.out.println("result of expanded list: "
              + list.size() + " elements:");
