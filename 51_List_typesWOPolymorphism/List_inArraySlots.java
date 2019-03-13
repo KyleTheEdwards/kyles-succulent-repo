@@ -6,10 +6,12 @@
 
 public class List_inArraySlots {
 
+    /*
     private int[]    intElements;
     private double[] doubleElements;
     private String[] stringElements;
     private int filledElements; // the number of elements in this list
+    */
 
     /* type identifier for each element
        That is, typeOfElements[i] == 0 means element i is an integer;
@@ -17,19 +19,25 @@ public class List_inArraySlots {
                                      2 means element i is a String.
         Optional extra education in programming (not comp sci):
             replace these "magic numbers" with an "enumerated type".
-     */
-    private int[] typeOfElements;
+    */
+    
+    private int filledElements;
+    private Element[] elements;
 
     private static final int INITIAL_CAPACITY = 10;
 
     /**
       Construct an empty list with a small initial capacity.
      */
-    public List_inArraySlots() {
+    /*public List_inArraySlots() {
       intElements = new int[INITIAL_CAPACITY];
       doubleElements = new double[INITIAL_CAPACITY];
       stringElements = new String[INITIAL_CAPACITY];
       typeOfElements = new int[INITIAL_CAPACITY];
+    }*/
+
+    public List_inArraySlots(){
+      elements = new Element[INITIAL_CAPACITY];
     }
 
 
@@ -45,7 +53,7 @@ public class List_inArraySlots {
        @return a string representation of this list,
        in [a,b,c,] format
       */
-    public String toString() {
+    /*public String toString() {
 
       String retString = "[";
 
@@ -61,6 +69,31 @@ public class List_inArraySlots {
       }
 
       return retString + "]";
+    }*/
+
+    public String toString() {
+
+      String retString = "[";
+
+      for (int element = 0; element < filledElements; element++){
+        switch(elements[element].getType()){
+          case 0:
+          retString += Integer.toString(elements[element].i);
+          break;
+
+          case 1:
+          retString += Double.toString(elements[element].d);
+          break;
+
+          case 2:
+          retString += elements[element].str;
+        }
+
+        retString += ", ";
+      }
+
+      return retString + "]";
+
     }
 
 
@@ -69,7 +102,7 @@ public class List_inArraySlots {
 
       @return true, in keeping with conventions yet to be discussed
      */
-      public boolean add( int type, int intValue, double doubleValue, String stringValue) {
+      /*public boolean add( int type, int intValue, double doubleValue, String stringValue) {
 
         if(typeOfElements.length <= filledElements){
           expand();
@@ -88,21 +121,40 @@ public class List_inArraySlots {
         filledElements++;
 
         return true;
+      }*/
+
+    public boolean add(int type, int intValue, double doubleValue, String stringValue){
+
+      if (elements.length <= filledElements){
+        expand();
       }
+
+      Element toAdd = new Element(type);
+
+      toAdd.i = intValue;
+      toAdd.d = doubleValue;
+      toAdd.str = stringValue;
+
+      elements[filledElements] = toAdd;
+
+      filledElements++;
+
+      return true;
+    }
 
 
     /**
       Double the capacity of the List_inArraySlots,
       preserving existing data.
      */
-      private void expand() {
+      /*private void expand() {
         System.out.println( "expand... (for debugging)");
-           // /* S.O.P. rules for debugging:
+           // S.O.P. rules for debugging:
               // Working methods should be silent. But during
               // development, the programmer must verify that
               // this method is called when that is appropriate.
               // So test using the println(), then comment it out.
-              // */
+              // 
 
         int newLength = intElements.length * 2;
 
@@ -123,5 +175,20 @@ public class List_inArraySlots {
         stringElements = newStringElements;
         typeOfElements = newTypeOfElements;
 
+      }*/
+
+    private void expand(){
+
+      Element[] newElements = new Element[elements.length * 2];
+
+      for(int element = 0; element < filledElements; element++){
+        newElements[element] = elements[element];
       }
+
+      elements = newElements;
+    }
+
+    public Element get(int index){
+      return elements[index];
+    }
 }
