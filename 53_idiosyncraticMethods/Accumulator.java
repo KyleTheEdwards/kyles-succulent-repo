@@ -44,52 +44,9 @@ public class Accumulator {
       ) {
 
 
-      /* 5.  Stumbling block 1
-      However, use of the operator alone is insufficient,
-      because the compiler (compiler? JVM?)
-      objects to the following code that adds use of
-      the operator to the code from Stumbling block 0:
-      */
-
-      // [code that illustrates the use of the operator]
-
-      /*
-      predicted error message:
-
-      actual error message:
-      */
-
-
-      /* 6. Workaround 1
-      Programmers use Java's _____________ operator
-      to tell the ___________ (compiler? JVM?)
-      that code uses a subclass's method on an object,
-      even though the reference to the object is stored
-      in a super-class variable.
-      */
-
-
-      /* 7. Stumbling block 2
-      However, use of this operator alone is insufficient,
-      because the ___________ (compiler? JVM?)
-      objects to the following code that adds use of
-      the operator to the code from Stumbling block 0:
-      */
-
-      // [code that illustrates the use of the operator]
-
-      /*
-      predicted error message:
-
-      actual error message:
-      */
-
-
-      /* 8. Workaround 2
-      A programmer can combine use of both operators
-      to apply a method to exactly those
-      elements in the list that support the method.
-      */
+      //workarounds include: casting and instanceOf();
+      //instanceOf() is the workaround which works.
+      //thinking heavily assisted by Brian Moses.
 
         String result = "";
         for(int element = 0; element < list.size(); element++){
